@@ -2,12 +2,13 @@
 <html>
 <head>
   <title>Scientific Calculator</title>
+  <script src="calcLogic.js"></script>
 </head>
-<body>
+<body onload="setup()" onkeydown="addToInputFromKeyboard()">
   <table>
     <tr>
       <td colspan="4">
-        <input type="number" id="userInput" />
+        <input type="text" step="any" disabled="true" id="userInput" />
       </td>
     </tr>
     <tr>
@@ -17,95 +18,96 @@
     </tr>
     <tr>
       <td colspan="3">
-        <select>
-          <option value="St">Standard</option>
-          <option value="Sc">Scientific</option>
+        <select onchange="selectChange(this)">
+          <option value="st" onclick="scientificHide()">Standard</option>
+          <option value="sc" onclick="scientificShow()">Scientific</option>
         </select>
       </td>
       <td>
-        <input type="button" id="clearBtn" value="C">
+        <input type="button" onclick="clearUserInput()" id="clearBtn" value="C">
       </td>
     </tr>
     <tr>
       <td>
-        <input type="button" id="mrBtn" value="MR">
+        <input type="button" onclick="memoryRecall()" id="mrBtn" value="MR">
       </td>
       <td>
-        <input type="button" id="mcBtn" value="MC">
+        <input type="button" onclick="memoryClear()" id="mcBtn" value="MC">
       </td>
       <td>
-        <input type="button" id="mplusBtn" value="M+">
+        <input type="button" onclick="memoryAdd()" id="mplusBtn" value="M+">
       </td>
       <td>
-        <input type="button" id="mminusBtn" value="M-">
+        <input type="button" onclick="memorySubtract()" id="mminusBtn" value="M-">
       </td>
     </tr>
     <tr>
       <td>
-        <input type="button" id="sevenBtn" value="7">
+        <input type="button" onclick="addToInput(this)" id="sevenBtn" value="7">
       </td>
       <td>
-        <input type="button" id="eightBtn" value="8">
+        <input type="button" onclick="addToInput(this)" id="eightBtn" value="8">
       </td>
       <td>
-        <input type="button" id="nineBtn" value="9">
+        <input type="button" onclick="addToInput(this)" id="nineBtn" value="9">
       </td>
       <td>
-        <input type="button" id="plusBtn" value="+">
+        <input type="button" onclick="changeOperator(this)" id="plusBtn" value="+">
       </td>
     </tr>
     <tr>
       <td>
-        <input type="button" id="fourBtn" value="4">
+        <input type="button" onclick="addToInput(this)" id="fourBtn" value="4">
       </td>
       <td>
-        <input type="button" id="fiveBtn" value="5">
+        <input type="button" onclick="addToInput(this)" id="fiveBtn" value="5">
       </td>
       <td>
-        <input type="button" id="sixBtn" value="6">
+        <input type="button" onclick="addToInput(this)" id="sixBtn" value="6">
       </td>
       <td>
-        <input type="button" id="minusBtn" value="-">
+        <input type="button" onclick="changeOperator(this)" id="minusBtn" value="-">
       </td>
     </tr>
     <tr>
       <td>
-        <input type="button" id="oneBtn" value="1">
+        <input type="button" onclick="addToInput(this)" id="oneBtn" value="1">
       </td>
       <td>
-        <input type="button" id="twoBtn" value="2">
+        <input type="button" onclick="addToInput(this)" id="twoBtn" value="2">
       </td>
       <td>
-        <input type="button" id="threeBtn" value="3">
+        <input type="button" onclick="addToInput(this)" id="threeBtn" value="3">
       </td>
       <td>
-        <input type="button" id="multiplyBtn" value="x">
+        <input type="button" onclick="changeOperator(this)" id="multiplyBtn" value="x">
       </td>
     </tr>
     <tr>
-      <td colspan="2">
-        <input type="button" id="zeroBtn" value="0">
+      <td>
+        <input type="button" onclick="addToInput(this)" id="zeroBtn" value="0">
       </td>
       <td>
-        <input type="button" id="divideBtn" value="÷">
+        <input type="button" onclick="addToInput(this)" id="pointBtn" value=".">
       </td>
       <td>
-        <input type="button" id="equalsbtn" value="=">
+        <input type="button" onclick="changeOperator(this)" id="divideBtn" value="÷">
+      </td>
+      <td>
+        <input type="button" onclick="calculate()" id="equalsbtn" value="=">
       </td>
     </tr>
-    <span id="scientificLine">
-      <tr>
-        <td colspan="2">
-          <input type="button" id="sinBtn" value="sin()">
-        </td>
-        <td>
-          <input type="button" id="cosBtn" value="cos()">
-        </td>
-        <td>
-          <input type="button" id="tanBtn" value="tan()">
-        </td>
+      <tr id="scientificLine" style="visibility:hidden">
+          <td colspan="2">
+            <input type="button" onclick="calcSinCosTan(this)" id="sinBtn" value="sin()">
+          </td>
+          <td>
+            <input type="button" onclick="calcSinCosTan(this)" id="cosBtn" value="cos()">
+          </td>
+          <td>
+            <input type="button" onclick="calcSinCosTan(this)" id="tanBtn" value="tan()">
+          </td>
       </tr>
-    </span>
   </table>
 </body>
 </html>
