@@ -1,19 +1,22 @@
+//empty variables to store web page elements
 var inputTxt;
 var outputWordsTxt;
 var scientificSpan;
 
-
+//global variables for calculations
 var calcMemory = 0.0;
 var result = 0.0;
 var curOperator = "+";
 var hasJustCalculated = false;
 
+//get web page element references on page load
 function setup() {
   inputTxt = document.getElementById("userInput");
   outputWordsTxt = document.getElementById("resultInWords");
   scientificLine = document.getElementById("scientificLine");
 }
 
+//add input using buttons on screen
 function addToInput(button) {
   if (hasJustCalculated) {
     inputTxt.value = "";
@@ -37,6 +40,7 @@ function addToInput(button) {
   }
 }
 
+//add input from the keyboard numbers and numpad
 function addToInputFromKeyboard() {
   var valueToAdd = "";
   if (event.keyCode == 48 || event.keyCode == 96) {
@@ -84,12 +88,13 @@ function addToInputFromKeyboard() {
   }
 }
 
+//clear result on screen
 function clearUserInput() {
   inputTxt.value = "";
   result = 0.0;
 }
 
-
+//show or hide last row based on selection
 function selectChange(select) {
   console.log(select.options[select.selectedIndex].value);
   if (select.options[select.selectedIndex].value == "st") {
@@ -100,23 +105,28 @@ function selectChange(select) {
   }
 }
 
+//show last row
 function scientificShow() {
   console.log("hello");
   scientificLine.style.visibility = "visible";
 }
 
+//hide last row
 function scientificHide() {
   scientificLine.style.visibility = "hidden";
 }
 
+//add to item in memory
 function memoryAdd() {
   calcMemory += parseFloat(inputTxt.value);
 }
 
+//subtract from item in memory
 function memorySubtract() {
   calcMemory -= parseFloat(inputTxt.value);
 }
 
+//put item in memory on screen
 function memoryRecall() {
   if (calcMemory!=null) {
     inputTxt.value = calcMemory.toString();
@@ -127,10 +137,12 @@ function memoryRecall() {
 
 }
 
+//clear memory
 function memoryClear() {
   calcMemory = null;
 }
 
+//change operation that will be performed on button press
 function changeOperator(button) {
   curOperator = button.value;
   if (result == 0.0) {
@@ -139,6 +151,7 @@ function changeOperator(button) {
   }
 }
 
+//perform basic calculations
 function calculate() {
   if (inputTxt.value != null) {
     switch (curOperator) {
@@ -164,6 +177,7 @@ function calculate() {
   }
 }
 
+//perform sin cos and tan calculations
 function calcSinCosTan(button) {
   if (button.value== "sin()") {
     result = Math.sin(parseFloat(inputTxt.value));
@@ -183,7 +197,7 @@ function calcSinCosTan(button) {
   numWordsOut(result);
 }
 
-
+//turn result into words
 function numWordsOut(result){
     var out ="";
 
@@ -243,6 +257,7 @@ function numWordsOut(result){
 function ones(number){
     var letters = "";
     switch (number){
+       case 0: letters="Zero";break;
        case 1: letters="One";break;
        case 2: letters="Two";break;
         case 3: letters="Three";break;
