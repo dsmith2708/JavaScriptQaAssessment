@@ -3,6 +3,7 @@
 <head>
   <title>Scientific Calculator</title>
   <script src="calcLogic.js"></script>
+  <link rel="stylesheet" type="text/css" href="calcStyling.css">
 </head>
 <body onload="setup()" onkeydown="addToInputFromKeyboard()">
   <table>
@@ -13,7 +14,7 @@
     </tr>
     <tr>
       <td colspan="4">
-        <input type="text" id="resultInWords" disabled="true" />
+        <div contenteditable="true"id="resultInWords" disabled="true"></textarea>
       </td>
     </tr>
     <tr>

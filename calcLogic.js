@@ -180,6 +180,7 @@ function calcSinCosTan(button) {
     inputTxt.value = result;
     hasJustCalculated = true;
   }
+  numWordsOut(result);
 }
 
 
@@ -220,7 +221,7 @@ function numWordsOut(result){
         out += ones(parseInt(numbersAfterPoint.charAt(i))) + " ";
       }
     }
-  outputWordsTxt.value = out;
+  outputWordsTxt.innerHTML = out;
 
   }
 

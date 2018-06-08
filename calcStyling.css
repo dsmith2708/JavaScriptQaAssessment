@@ -1,0 +1,76 @@
+input[type="button"] {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  min-width: 100%;
+  max-width: 100%;
+  margin: 4px;
+}
+input[type="button"]:hover {
+  background-color: #3e8e41
+}
+
+input[type="button"]:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+input[type="text"] {
+  padding: 15px 0px;
+  font-size: 24px;
+  text-align: center;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  min-width: 100%;
+  margin: 4px;
+}
+
+#resultInWords {
+  padding: 15px 0px;
+  font-size: 24px;
+  text-align: center;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  min-width: 100%;
+  max-width: 100%;
+  margin: 4px;
+}
+
+
+
+
+select {
+  -webkit-appearance: menulist-button;
+  width: 100%;
+  min-height:100%;
+  color: #fff;
+  background-color: #4CAF50;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  margin: 4px;
+}
+
+option {
+  height:50%;
+}
